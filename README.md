@@ -22,7 +22,7 @@ Just remember that you need to authenticate the user before actually granting a 
 
 Remember to also set the Content-Type to application/json in the request header. The rest is quite straightforward:
 
-[Route("token")]
+	[Route("token")]
         [HttpPost]
         public async Task<IActionResult> GetAuthenticationToken([FromBody]AccountApiDto userCredentials)
         {
