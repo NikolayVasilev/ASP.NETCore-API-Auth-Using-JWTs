@@ -25,7 +25,7 @@ dotnet add package System.IdentityModel.Tokens.Jwt
 Just remember that you need to authenticate the user before actually granting a token! This is why we created the project with the handy out-of-the-box ASP.NET Core Identity membership system. Just pass the username and password in the body of the token request:
 
 Remember to also set the Content-Type to application/json in the request header. The rest is quite straightforward:
-
+```csharp
 	[Route("token")]
         [HttpPost]
         public async Task<IActionResult> GetAuthenticationToken([FromBody]AccountApiDto userCredentials)
@@ -59,29 +59,29 @@ Remember to also set the Content-Type to application/json in the request header.
 
             return this.Ok(new { result });
         }
-
+```
 Once the user has proved his authenticity we can actually go ahead and issue that token already! That will happen in the GenerateToken method.
 
 The first thing we need are the signing credentials that will verify the validity of the token once it makes its way back to the server. Sounds difficult? Not really! We just need to generate a new SymmetricSecurityKey from a super secret master key (preferably in the form of GUID because it has its own length/complexity requirements) and encode it using a security algorithm of choice:
-{
+```csharp
 //generate signing creds with an encoded key
 private const string SecretKey = "6be3d782-bf25-47f3-90ff-74c963b916d0";
 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(SecretKey));
 var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-}
+```
 
 We will be using the JwtSecurityToken(IssuerString, AudienceString, IEnumerable<Claim>, Lifetime, SigningCredentials) class constructor in order to specify some optional parameter such as the issuer, the intended audience, a set of claims (you can add your own custom claims if you’d like!) and token expiration. A simple claims set might look like this:
 
-[
+```csharp
 //add a couple of claims	
 var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
-]
+```
 This is all we need for that token! Just go ahead and generate it using the above-mentioned JwtSecurityToken class:
-[
+```csharp
 //generate token
 var token = new JwtSecurityToken(
                 "TokenApiAuthenticationGuide",
@@ -90,12 +90,12 @@ var token = new JwtSecurityToken(
                 expires: DateTime.UtcNow.AddMinutes(30),
                 signingCredentials: credentials
             );
-]
+```
 One last thing is required before actually returning it to the user. We need to invoke the WriteToken method of the JwtSecurityTokenHandler class in order to encode the token as a string by passing the token as a parameter:
-[
+```csharp
 //encode token to string
 var tokenToReturn = new JwtSecurityTokenHandler().WriteToken(token);
-]
+```
 That’s it! Now let’s go ahead and make sure that we can actually use those tokens for user authentication.
 
 Step 3: Add a token-based authentication scheme
@@ -107,7 +107,7 @@ We will need to install the Microsoft.AspNetCore.Authentication.JwtBearer NuGet 
 dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
 
 The last step will be to update ConfigureServices method of the Startup.cs class in order to add bearer token authentication and authorization:
-
+```csharp
  // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -135,9 +135,9 @@ The last step will be to update ConfigureServices method of the Startup.cs class
 	
             //the rest of the method implementation has been omitted for brevity
         }
-
+```
 This is it! Let’s test it real quick and be done with it! We need to make sure the TestAuthController has been marked with the well-known [Authorize] attribute in order to secure it against unauthorized requests. The problem here is that if you don’t specify the authentication scheme as JwtBearerDefaults.AuthenticationScheme, the default cookie behaviour will occur and you will always get the login page as a return for your HTTP request. Make sure to use the [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)] implementation of the Authorize Attribute for the endpoints you want to protect via bearer tokens.
-
+```csharp
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Produces("application/json")]
     [Route("api/TestAuth")]
@@ -152,7 +152,7 @@ This is it! Let’s test it real quick and be done with it! We need to make sure
             return new ObjectResult(testResult);
         }
     }
-
+```
 Let’s generate a token by sending a request to the token generation endpoint - in my case /api/account/token.
 
 Now we are ready to check if the secured test endpoint, /api/TestAuth/example, will accept the generated token as a form of authentication. We should get the above test result as a response.
