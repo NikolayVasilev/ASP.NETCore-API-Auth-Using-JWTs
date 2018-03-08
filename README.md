@@ -72,16 +72,16 @@ var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
 We will be using the JwtSecurityToken(IssuerString, AudienceString, IEnumerable<Claim>, Lifetime, SigningCredentials) class constructor in order to specify some optional parameter such as the issuer, the intended audience, a set of claims (you can add your own custom claims if you’d like!) and token expiration. A simple claims set might look like this:
 
-{
+[
 //add a couple of claims	
 var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
-}
+]
 This is all we need for that token! Just go ahead and generate it using the above-mentioned JwtSecurityToken class:
-{
+[
 //generate token
 var token = new JwtSecurityToken(
                 "TokenApiAuthenticationGuide",
@@ -90,12 +90,12 @@ var token = new JwtSecurityToken(
                 expires: DateTime.UtcNow.AddMinutes(30),
                 signingCredentials: credentials
             );
-}
+]
 One last thing is required before actually returning it to the user. We need to invoke the WriteToken method of the JwtSecurityTokenHandler class in order to encode the token as a string by passing the token as a parameter:
-{
+[
 //encode token to string
 var tokenToReturn = new JwtSecurityTokenHandler().WriteToken(token);
-}
+]
 That’s it! Now let’s go ahead and make sure that we can actually use those tokens for user authentication.
 
 Step 3: Add a token-based authentication scheme
