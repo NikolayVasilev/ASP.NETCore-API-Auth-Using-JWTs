@@ -9,4 +9,3 @@ C:\Work\SourceWeave\ASP.NETCore-API-Auth-Using-JWTs\ASP.NETCoreAPIAuthSchemeUsin
 C:\Work\SourceWeave\ASP.NETCore-API-Auth-Using-JWTs\ASP.NETCoreAPIAuthSchemeUsingJWTs\obj\Debug\netcoreapp2.0\ASP.NETCoreAPIAuthSchemeUsingJWTs.AssemblyInfo.cs
 C:\Work\SourceWeave\ASP.NETCore-API-Auth-Using-JWTs\ASP.NETCoreAPIAuthSchemeUsingJWTs\obj\Debug\netcoreapp2.0\ASP.NETCoreAPIAuthSchemeUsingJWTs.dll
 C:\Work\SourceWeave\ASP.NETCore-API-Auth-Using-JWTs\ASP.NETCoreAPIAuthSchemeUsingJWTs\obj\Debug\netcoreapp2.0\ASP.NETCoreAPIAuthSchemeUsingJWTs.pdb
-C:\Work\SourceWeave\ASP.NETCore-API-Auth-Using-JWTs\ASP.NETCoreAPIAuthSchemeUsingJWTs\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
