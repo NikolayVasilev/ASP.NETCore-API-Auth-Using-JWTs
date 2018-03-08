@@ -7,11 +7,15 @@ Note: This post targets ASP.NET 2.x. However, the implementation differences are
 Token authentication has been adopted as the go-to API authentication method for some time now. I won’t go into the pros and cons of token-based authentication since those have been discussed at length. The point here is that ASP.NET Core makes this process incredibly simple and can be achieved in a few steps with the use of JSON Web Tokens (JWTs).
 
 While the UseOAuthAuthorizationServer middleware provides a convenient endpoint for token generation in ASP.NET 4.x, you can easily write your own .NET Core middleware from scratch in three easy short steps!
+
 Step 1: New Project Setup
+
 Start by creating a new ASP.NET Core project. I have added a new ASP.NET Core 2.0 MVC Web project with the authentication option set to “Individual User Accounts”. This is important since we need the provided out-of-the-box register/login functionality. Those user accounts will be used to make sure that a JWT is granted to a successfully authenticated user.
 
 I’ve also added a couple of API controllers in a custom ApiControllers folder under the Controllers folder - one will be used to obtain a JWT after successful user authentication and the other will be used to test the token-based authentication scheme once complete.
+
 Step 2: Create Endpoint For JWT Generation
+
 In order to be able to construct a JWT you will need the JwtSecurityToken class, which comes with the System.IdentityModel.Tokens package. Its classes are responsible for the generation of security tokens, the associated handlers and various other items. It will basically do all the hard work for you!
 
 Install it by executing the following Command Line Interface (CLI) command:
@@ -90,6 +94,7 @@ var tokenToReturn = new JwtSecurityTokenHandler().WriteToken(token);
 That’s it! Now let’s go ahead and make sure that we can actually use those tokens for user authentication.
 
 Step 3: Add a token-based authentication scheme
+
 Once again, we won’t be reinventing the wheel and will continue to use the existing authentication middleware with a minor tweak to make it accept JWTs as a form of authentication.
 
 We will need to install the Microsoft.AspNetCore.Authentication.JwtBearer NuGet package on our project to actually achieve that:
