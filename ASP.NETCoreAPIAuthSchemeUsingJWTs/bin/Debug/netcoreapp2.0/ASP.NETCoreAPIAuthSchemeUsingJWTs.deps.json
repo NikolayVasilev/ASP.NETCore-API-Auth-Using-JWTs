@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "bf2fa39bd487900a883ba09fb48ad66acaf40d8e"
+    "signature": "f201e73e1b8e5766218b11b3be808116c56aac5d"
   },
   "compilationOptions": {
     "defines": [
@@ -26,7 +26,8 @@
           "Microsoft.AspNetCore.All": "2.0.3",
           "Microsoft.EntityFrameworkCore.Tools": "2.0.1",
           "Microsoft.NETCore.App": "2.0.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.1"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.1",
+          "System.IdentityModel.Tokens.Jwt": "5.2.1"
         },
         "runtime": {
           "ASP.NETCoreAPIAuthSchemeUsingJWTs.dll": {}
@@ -2205,8 +2206,9 @@
           "lib/netstandard1.3/Microsoft.IdentityModel.Clients.ActiveDirectory.dll": {}
         }
       },
-      "Microsoft.IdentityModel.Logging/1.1.4": {
+      "Microsoft.IdentityModel.Logging/5.2.1": {
         "dependencies": {
+          "NETStandard.Library": "2.0.0",
           "System.Diagnostics.Tracing": "4.3.0",
           "System.Globalization": "4.3.0",
           "System.IO": "4.3.0",
@@ -2223,7 +2225,7 @@
         "dependencies": {
           "System.Collections.Specialized": "4.3.0",
           "System.Diagnostics.Contracts": "4.3.0",
-          "System.IdentityModel.Tokens.Jwt": "5.1.4",
+          "System.IdentityModel.Tokens.Jwt": "5.2.1",
           "System.Net.Http": "4.3.0"
         },
         "runtime": {
@@ -2245,9 +2247,10 @@
           "lib/netstandard1.4/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll": {}
         }
       },
-      "Microsoft.IdentityModel.Tokens/5.1.4": {
+      "Microsoft.IdentityModel.Tokens/5.2.1": {
         "dependencies": {
-          "Microsoft.IdentityModel.Logging": "1.1.4",
+          "Microsoft.IdentityModel.Logging": "5.2.1",
+          "NETStandard.Library": "2.0.0",
           "Newtonsoft.Json": "10.0.1",
           "System.Collections": "4.3.0",
           "System.Diagnostics.Tools": "4.3.0",
@@ -2255,12 +2258,12 @@
           "System.Runtime.Extensions": "4.3.0",
           "System.Runtime.InteropServices": "4.3.0",
           "System.Runtime.InteropServices.RuntimeInformation": "4.3.0",
+          "System.Runtime.Serialization.Xml": "4.3.0",
           "System.Security.Claims": "4.3.0",
           "System.Security.Cryptography.Algorithms": "4.3.0",
           "System.Security.Cryptography.X509Certificates": "4.3.0",
           "System.Text.RegularExpressions": "4.3.0",
-          "System.Threading": "4.3.0",
-          "System.Xml.ReaderWriter": "4.3.0"
+          "System.Threading": "4.3.0"
         },
         "runtime": {
           "lib/netstandard1.4/Microsoft.IdentityModel.Tokens.dll": {}
@@ -3124,9 +3127,11 @@
           }
         }
       },
-      "System.IdentityModel.Tokens.Jwt/5.1.4": {
+      "System.IdentityModel.Tokens.Jwt/5.2.1": {
         "dependencies": {
-          "Microsoft.IdentityModel.Tokens": "5.1.4"
+          "Microsoft.IdentityModel.Tokens": "5.2.1",
+          "NETStandard.Library": "2.0.0",
+          "Newtonsoft.Json": "10.0.1"
         },
         "runtime": {
           "lib/netstandard1.4/System.IdentityModel.Tokens.Jwt.dll": {}
@@ -3395,7 +3400,7 @@
           "System.Threading": "4.3.0"
         }
       },
-      "System.Private.DataContractSerialization/4.1.1": {
+      "System.Private.DataContractSerialization/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
           "System.Collections.Concurrent": "4.3.0",
@@ -3419,8 +3424,9 @@
           "System.Threading": "4.3.0",
           "System.Threading.Tasks": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0",
+          "System.Xml.XDocument": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0",
-          "System.Xml.XmlSerializer": "4.0.11"
+          "System.Xml.XmlSerializer": "4.3.0"
         }
       },
       "System.Reflection/4.3.0": {
@@ -3566,7 +3572,7 @@
       "System.Runtime.Serialization.Json/4.0.2": {
         "dependencies": {
           "System.IO": "4.3.0",
-          "System.Private.DataContractSerialization": "4.1.1",
+          "System.Private.DataContractSerialization": "4.3.0",
           "System.Runtime": "4.3.0"
         }
       },
@@ -3574,6 +3580,16 @@
         "dependencies": {
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Runtime.Serialization.Xml/4.3.0": {
+        "dependencies": {
+          "System.IO": "4.3.0",
+          "System.Private.DataContractSerialization": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Serialization.Primitives": "4.3.0",
+          "System.Text.Encoding": "4.3.0",
+          "System.Xml.ReaderWriter": "4.3.0"
         }
       },
       "System.Security.AccessControl/4.4.0": {
@@ -3993,7 +4009,7 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "System.Xml.XmlSerializer/4.0.11": {
+      "System.Xml.XmlSerializer/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
           "System.Globalization": "4.3.0",
@@ -5309,12 +5325,12 @@
       "path": "microsoft.identitymodel.clients.activedirectory/3.14.1",
       "hashPath": "microsoft.identitymodel.clients.activedirectory.3.14.1.nupkg.sha512"
     },
-    "Microsoft.IdentityModel.Logging/1.1.4": {
+    "Microsoft.IdentityModel.Logging/5.2.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-j7t22EsDOuo0IXqAbp6ijdB1GuaY8cu3YoPNZpymOhUMTVC+wRTV0IHqxL31HacCnJHU/igsqe70fDKZgZu3oA==",
-      "path": "microsoft.identitymodel.logging/1.1.4",
-      "hashPath": "microsoft.identitymodel.logging.1.1.4.nupkg.sha512"
+      "sha512": "sha512-kbmvhMYu5OZXWN3toFXhrj3bSN7B+ZzNWzAZQ4Ofp5x2srk9ZCYFljETGS5faxzPwGd5+7W4WZlAfOI7QvzhlA==",
+      "path": "microsoft.identitymodel.logging/5.2.1",
+      "hashPath": "microsoft.identitymodel.logging.5.2.1.nupkg.sha512"
     },
     "Microsoft.IdentityModel.Protocols/2.1.4": {
       "type": "package",
@@ -5330,12 +5346,12 @@
       "path": "microsoft.identitymodel.protocols.openidconnect/2.1.4",
       "hashPath": "microsoft.identitymodel.protocols.openidconnect.2.1.4.nupkg.sha512"
     },
-    "Microsoft.IdentityModel.Tokens/5.1.4": {
+    "Microsoft.IdentityModel.Tokens/5.2.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-SsJbZVPvjSlKFDAQmR2wpL6ZD/vCFlIsf0jxRlBJwyzKXZy3Wi/Xo+fE2MzAerLsJgG1UCdtplRwqDyq1euayw==",
-      "path": "microsoft.identitymodel.tokens/5.1.4",
-      "hashPath": "microsoft.identitymodel.tokens.5.1.4.nupkg.sha512"
+      "sha512": "sha512-wVWYpXfE6gpkSrIRNo5TDVC7ss6KPTTrmT6x8ysHiZRIMSRAZ8TyHEAmpdATBBPNRmnlevyAs4CK6nPfDpCTqw==",
+      "path": "microsoft.identitymodel.tokens/5.2.1",
+      "hashPath": "microsoft.identitymodel.tokens.5.2.1.nupkg.sha512"
     },
     "Microsoft.Net.Http.Headers/2.0.1": {
       "type": "package",
@@ -5876,12 +5892,12 @@
       "path": "system.globalization.extensions/4.3.0",
       "hashPath": "system.globalization.extensions.4.3.0.nupkg.sha512"
     },
-    "System.IdentityModel.Tokens.Jwt/5.1.4": {
+    "System.IdentityModel.Tokens.Jwt/5.2.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-hLUU1N99aL9uyxiTraBnCKlpUKsbP/+5ygD7cswspH9/+M7fAAL0hRzt2aA4w7VEQlSSiu8j+xWFk3NRcqhfQQ==",
-      "path": "system.identitymodel.tokens.jwt/5.1.4",
-      "hashPath": "system.identitymodel.tokens.jwt.5.1.4.nupkg.sha512"
+      "sha512": "sha512-QwALOmIQnwYXO7SZuzHvp+aF9+E8kouJl2JDHe9hyV/Mqzl2KhOwZMlN+mhyIYo5ggHcIVa/LN7E46WD26OEEg==",
+      "path": "system.identitymodel.tokens.jwt/5.2.1",
+      "hashPath": "system.identitymodel.tokens.jwt.5.2.1.nupkg.sha512"
     },
     "System.Interactive.Async/3.1.1": {
       "type": "package",
@@ -5995,12 +6011,12 @@
       "path": "system.objectmodel/4.3.0",
       "hashPath": "system.objectmodel.4.3.0.nupkg.sha512"
     },
-    "System.Private.DataContractSerialization/4.1.1": {
+    "System.Private.DataContractSerialization/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-lcqFBUaCZxPiUkA4dlSOoPZGtZsAuuElH2XHgLwGLxd7ZozWetV5yiz0qGAV2AUYOqw97MtZBjbLMN16Xz4vXA==",
-      "path": "system.private.datacontractserialization/4.1.1",
-      "hashPath": "system.private.datacontractserialization.4.1.1.nupkg.sha512"
+      "sha512": "sha512-yDaJ2x3mMmjdZEDB4IbezSnCsnjQ4BxinKhRAaP6kEgL6Bb6jANWphs5SzyD8imqeC/3FxgsuXT6ykkiH1uUmA==",
+      "path": "system.private.datacontractserialization/4.3.0",
+      "hashPath": "system.private.datacontractserialization.4.3.0.nupkg.sha512"
     },
     "System.Reflection/4.3.0": {
       "type": "package",
@@ -6134,6 +6150,13 @@
       "sha512": "sha512-Wz+0KOukJGAlXjtKr+5Xpuxf8+c8739RI1C+A2BoQZT+wMCCoMDDdO8/4IRHfaVINqL78GO8dW8G2lW/e45Mcw==",
       "path": "system.runtime.serialization.primitives/4.3.0",
       "hashPath": "system.runtime.serialization.primitives.4.3.0.nupkg.sha512"
+    },
+    "System.Runtime.Serialization.Xml/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nUQx/5OVgrqEba3+j7OdiofvVq9koWZAC7Z3xGI8IIViZqApWnZ5+lLcwYgTlbkobrl/Rat+Jb8GeD4WQESD2A==",
+      "path": "system.runtime.serialization.xml/4.3.0",
+      "hashPath": "system.runtime.serialization.xml.4.3.0.nupkg.sha512"
     },
     "System.Security.AccessControl/4.4.0": {
       "type": "package",
@@ -6338,12 +6361,12 @@
       "path": "system.xml.xmldocument/4.3.0",
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
     },
-    "System.Xml.XmlSerializer/4.0.11": {
+    "System.Xml.XmlSerializer/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-FrazwwqfIXTfq23mfv4zH+BjqkSFNaNFBtjzu3I9NRmG8EELYyrv/fJnttCIwRMFRR/YKXF1hmsMmMEnl55HGw==",
-      "path": "system.xml.xmlserializer/4.0.11",
-      "hashPath": "system.xml.xmlserializer.4.0.11.nupkg.sha512"
+      "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
+      "path": "system.xml.xmlserializer/4.3.0",
+      "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
     "System.Xml.XPath/4.3.0": {
       "type": "package",
